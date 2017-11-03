@@ -10,7 +10,7 @@ install:
   - travis_retry composer install --no-interaction
 
 script:
-  - ./vendor/bin/phpunit --configuration phpunit.xml
+  - ./vendor/bin/phpunit --configuration phpunit.xml  --coverage-clover=coverage.xml
 
 branches:
   only: master
@@ -24,3 +24,6 @@ cache:
   directories:
   - vendor
   - $HOME/.cache/composer
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
