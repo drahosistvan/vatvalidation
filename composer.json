@@ -1,0 +1,48 @@
+{
+  "name": "drahosistvan/vatvalidation",
+  "type": "library",
+  "description": "A simple wrapper for VIES VAT Validation WebService.",
+  "keywords": [
+    "date",
+    "time",
+    "DateTime"
+  ],
+  "homepage": "https://github.com/drahosistvan/vatvalidation",
+  "support": {
+    "issues": "https://github.com/drahosistvan/vatvalidation/issues",
+    "source": "https://github.com/drahosistvan/vatvalidation"
+  },
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Istvan Drahos",
+      "email": "hello@isti.hu",
+      "homepage": "http://isti.hu"
+    }
+  ],
+  "require": {
+    "php": ">=5.0.1"
+  },
+  "require-dev": {
+    "friendsofphp/php-cs-fixer": "~2",
+    "phpunit/phpunit": "~5.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Carbon\\": "src/VatValidation/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Tests\\": "tests/"
+    }
+  },
+  "config": {
+    "sort-packages": true
+  },
+  "scripts": {
+    "test": "./vendor/bin/phpunit; ./vendor/bin/php-cs-fixer fix -v --diff --dry-run;",
+    "phpunit": "./vendor/bin/phpunit;",
+    "phpcs": "./vendor/bin/php-cs-fixer fix -v --diff --dry-run;"
+  }
+}
