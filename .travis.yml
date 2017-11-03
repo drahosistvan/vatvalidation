@@ -26,4 +26,4 @@ cache:
   - $HOME/.cache/composer
 
 after_success:
-  - bash <(curl -s https://codecov.io/bash)
+  - bash <(curl -s https://codecov.io/bash) -t 1cdcf762-abdb-4fd6-bf4c-aa3b3e3244de
