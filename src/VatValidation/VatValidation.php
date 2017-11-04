@@ -2,21 +2,21 @@
 
 namespace VatValidation;
 
-use ArrayAccess;
 use SoapClient;
+use VatValidation\Exceptions\ImmutableDataException;
+use VatValidation\Exceptions\InvalidObjectPropertyException;
 use VatValidation\Exceptions\WrongVatNumberFormatException;
 
-class VatValidation implements ArrayAccess
+class VatValidation
 {
     const WSDL_URL = "http://ec.europa.eu/taxation_customs/vies/checkVatService.wsdl";
 
-    public $countryCode;
-    public $vatNumber;
-    public $valid = false;
-    public $validated = false;
-    public $name;
-    public $address;
-
+    private $countryCode;
+    private $vatNumber;
+    private $valid = false;
+    private $validated = false;
+    private $name;
+    private $address;
     private $client;
 
     function __construct($client = null)
@@ -31,6 +31,19 @@ class VatValidation implements ArrayAccess
         }
 
         return $this;
+    }
+
+    public function __get($name)
+    {
+        if (isset($this->$name)) {
+            return $this->$name;
+        }
+        throw new InvalidObjectPropertyException('This property is not exists in this object.');
+    }
+
+    public function __set($name, $value)
+    {
+        throw new ImmutableDataException('This data is only readable');
     }
 
     private function formatVatNumber($number)
@@ -81,25 +94,5 @@ class VatValidation implements ArrayAccess
             "address"     => $this->address,
             "validated"   => $this->validated,
         ];
-    }
-
-    public function offsetSet($offset, $value)
-    {
-        $this->$offset = $value;
-    }
-
-    public function offsetExists($offset)
-    {
-        return isset($this->$offset);
-    }
-
-    public function offsetUnset($offset)
-    {
-        unset($this->$offset);
-    }
-
-    public function offsetGet($offset)
-    {
-        return isset($this->$offset) ? $this->$offset : null;
     }
 }

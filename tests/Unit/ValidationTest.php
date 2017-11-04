@@ -2,6 +2,8 @@
 namespace VatValidation\Tests;
 
 use PHPUnit_Framework_TestCase;
+use VatValidation\Exceptions\ImmutableDataException;
+use VatValidation\Exceptions\InvalidObjectPropertyException;
 use VatValidation\Exceptions\WrongVatNumberFormatException;
 use VatValidation\VatValidation;
 
@@ -17,23 +19,21 @@ class ValidationTest extends PHPUnit_Framework_TestCase
     }
 
     /** @test **/
-    public function it_can_casted_to_array()
-    {
-        $st = (new VatValidation())->validate('HU66861328');
-        $this->assertEquals($st['countryCode'], 'HU');
-
-        $this->assertTrue(isset($st['countryCode']));
-        $this->assertTrue(isset($st['vatNumber']));
-        $this->assertTrue(isset($st['name']));
-        $this->assertTrue(isset($st['address']));
-        $this->assertTrue(is_array(array($st)));
-    }
-
-
-    /** @test **/
     public function it_sets_the_proper_values_based_on_vies_webservice()
     {
+        $valid = new VatValidation();
+        $valid->validate('HU66861328');
+        $this->assertEquals($valid->validated, true);
+        $this->assertEquals($valid->countryCode, 'HU');
+        $this->assertEquals($valid->vatNumber, '66861328');
+        $this->assertEquals($valid->valid, true);
 
+        $invalid = new VatValidation();
+        $invalid->validate('HU66861328123123');
+        $this->assertEquals($invalid->validated, true);
+        $this->assertEquals($invalid->countryCode, 'HU');
+        $this->assertEquals($invalid->vatNumber, '66861328123123');
+        $this->assertEquals($invalid->valid, false);
     }
 
     /** @test **/
@@ -62,5 +62,23 @@ class ValidationTest extends PHPUnit_Framework_TestCase
 
         $validation->validate('HU66861328');
         $this->assertTrue($validation->validated);
+    }
+
+    /** @test **/
+    public function it_prevent_external_data_manipulation()
+    {
+        $this->expectException(ImmutableDataException::class);
+        $validation = (new VatValidation())->validate('HU66861328');
+
+        $validation->countryCode = 1;
+    }
+
+    /** @test **/
+    public function it_throws_exception_if_invalid_property_is_accessed()
+    {
+        $this->expectException(InvalidObjectPropertyException::class);
+        $validation = (new VatValidation())->validate('HU66861328');
+
+        $validation->invalidProperty;
     }
 }
