@@ -1,6 +1,9 @@
 # VAT Validation package for PHP
 [![Build Status](https://travis-ci.org/drahosistvan/vatvalidation.svg?branch=master)](https://travis-ci.org/drahosistvan/vatvalidation)
 [![codecov](https://codecov.io/gh/drahosistvan/vatvalidation/branch/master/graph/badge.svg)](https://codecov.io/gh/drahosistvan/vatvalidation)
+[![Latest Stable Version](https://poser.pugx.org/drahosistvan/vatvalidation/v/stable)](https://packagist.org/packages/drahosistvan/vatvalidation)
+[![Total Downloads](https://poser.pugx.org/drahosistvan/vatvalidation/downloads)](https://packagist.org/packages/drahosistvan/vatvalidation)
+[![License](https://poser.pugx.org/drahosistvan/vatvalidation/license)](https://packagist.org/packages/drahosistvan/vatvalidation)
 
 ## Installation
 Simply require the package via composer:
