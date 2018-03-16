@@ -4,7 +4,7 @@ git:
   depth: 1
 
 php:
-    - 5.6
+    - 7.1
 
 install:
   - travis_retry composer install --no-interaction
