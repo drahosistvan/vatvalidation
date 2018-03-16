@@ -48,7 +48,7 @@ class VatValidation
 
     private function formatVatNumber($number)
     {
-        $pattern = "/^(AT|B[GE]|C[YZ]|D[EK]|E[ELS]|F[IR]|GB|H[RU]|I[ET]|L[TUV]|MT|NL|P[LT]|RO|S[EIK])([A-Z]|[0-9]+$)/";
+        $pattern = "/^(AT|BE|BG|CY|CZ|DE|DK|EE|ES|FI|FR|GB|GR|HR|HU|IE|IT|LT|LU|LV|MT|NL|PL|PT|RO|SE|SI|SK)[A-Z0-9]{6,20}$/";
         $number = strtoupper($number);
 
         if (preg_match($pattern, $number)) {
