@@ -1,0 +1,18 @@
+preset: recommended
+
+enabled:
+  - align_double_arrow
+  - align_equals
+  - no_useless_elseä
+
+disabled:
+  - concat_without_spaces
+  - unalign_equals
+
+finder:
+  exclude:
+    - "tests"
+  name:
+    - "*.php"
+  not-name:
+    - "*Stub.php"
