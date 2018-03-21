@@ -1,0 +1,15 @@
+preset: recommended
+
+risky: false
+
+enabled:
+
+disabled:
+
+finder:
+  exclude:
+    - "tests"
+  name:
+    - "*.php"
+  not-name:
+    - "*Stub.php"

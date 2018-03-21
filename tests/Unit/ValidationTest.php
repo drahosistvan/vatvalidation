@@ -124,6 +124,7 @@ class ValidationTest extends PHPUnit_Framework_TestCase
         $class = new \ReflectionClass($object);
         $method = $class->getMethod($name);
         $method->setAccessible(true);
+
         return $method->invokeArgs($object, $args);
     }
 }

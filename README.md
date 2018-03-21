@@ -3,6 +3,7 @@
 [![codecov](https://codecov.io/gh/drahosistvan/vatvalidation/branch/master/graph/badge.svg)](https://codecov.io/gh/drahosistvan/vatvalidation)
 [![Latest Stable Version](https://poser.pugx.org/drahosistvan/vatvalidation/v/stable)](https://packagist.org/packages/drahosistvan/vatvalidation)
 [![Total Downloads](https://poser.pugx.org/drahosistvan/vatvalidation/downloads)](https://packagist.org/packages/drahosistvan/vatvalidation)
+[![StyleCI](https://styleci.io/repos/109401111/shield?branch=master)](https://styleci.io/repos/109401111)
 [![License](https://poser.pugx.org/drahosistvan/vatvalidation/license)](https://packagist.org/packages/drahosistvan/vatvalidation)
 
 ## Installation
