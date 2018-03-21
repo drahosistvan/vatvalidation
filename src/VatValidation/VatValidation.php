@@ -9,7 +9,7 @@ use VatValidation\Exceptions\WrongVatNumberFormatException;
 
 class VatValidation
 {
-    const WSDL_URL = "http://ec.europa.eu/taxation_customs/vies/checkVatService.wsdl";
+    const WSDL_URL = 'http://ec.europa.eu/taxation_customs/vies/checkVatService.wsdl';
 
     private $countryCode;
     private $vatNumber;
@@ -19,7 +19,7 @@ class VatValidation
     private $address;
     private $client;
 
-    function __construct($client = null)
+    public function __construct($client = null)
     {
         $this->client = $client ?: new SoapClient(self::WSDL_URL, ['exceptions' => true]);
     }
@@ -38,6 +38,7 @@ class VatValidation
         if (isset($this->$name)) {
             return $this->$name;
         }
+
         throw new InvalidObjectPropertyException('This property is not exists in this object.');
     }
 
@@ -48,7 +49,7 @@ class VatValidation
 
     private function formatVatNumber($number)
     {
-        $pattern = "/^(AT|BE|BG|CY|CZ|DE|DK|EE|ES|FI|FR|GB|GR|HR|HU|IE|IT|LT|LU|LV|MT|NL|PL|PT|RO|SE|SI|SK)[A-Z0-9]{6,20}$/";
+        $pattern = '/^(AT|BE|BG|CY|CZ|DE|DK|EE|ES|FI|FR|GB|GR|HR|HU|IE|IT|LT|LU|LV|MT|NL|PL|PT|RO|SE|SI|SK)[A-Z0-9]{6,20}$/';
         $number = strtoupper($number);
 
         if (preg_match($pattern, $number)) {
@@ -87,12 +88,12 @@ class VatValidation
     public function toArray()
     {
         return [
-            "valid"       => $this->valid,
-            "countryCode" => $this->countryCode,
-            "vatNumber"   => $this->vatNumber,
-            "name"        => $this->name,
-            "address"     => $this->address,
-            "validated"   => $this->validated,
+            'valid'       => $this->valid,
+            'countryCode' => $this->countryCode,
+            'vatNumber'   => $this->vatNumber,
+            'name'        => $this->name,
+            'address'     => $this->address,
+            'validated'   => $this->validated,
         ];
     }
 }
