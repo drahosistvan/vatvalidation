@@ -1,13 +1,15 @@
 preset: recommended
 
+risky: false
+
 enabled:
-  - align_double_arrow
-  - align_equals
-  - no_useless_elseä
+  - long_array_syntax
+  - strict
+  - unalign_double_arrow
 
 disabled:
-  - concat_without_spaces
-  - unalign_equals
+  - align_double_arrow
+  - short_array_syntax
 
 finder:
   exclude:
