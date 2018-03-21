@@ -3,9 +3,11 @@
   "type": "library",
   "description": "A simple wrapper for VIES VAT Validation WebService.",
   "keywords": [
-    "date",
-    "time",
-    "DateTime"
+    "vies",
+    "vat",
+    "validation",
+    "eu vat",
+    "vat validation"
   ],
   "homepage": "https://github.com/drahosistvan/vatvalidation",
   "support": {
