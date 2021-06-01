@@ -2,13 +2,13 @@
 
 namespace VatValidation\Tests;
 
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 use VatValidation\Exceptions\ImmutableDataException;
 use VatValidation\Exceptions\InvalidObjectPropertyException;
 use VatValidation\Exceptions\WrongVatNumberFormatException;
 use VatValidation\VatValidation;
 
-class ValidationTest extends PHPUnit_Framework_TestCase
+class ValidationTest extends TestCase
 {
     /** @test * */
     public function it_has_a_validate_method()
