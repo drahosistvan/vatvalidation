@@ -13,7 +13,7 @@ Simply require the package via composer:
 ## How to use
 ```php
 $validation = new VatValidation();
-$validation->validate('UK123321213');
+$validation->validate('HU123321213');
 
 if ($validation->valid) {
     print $validation->name;
@@ -27,6 +27,6 @@ It has a `toArray` method, so you can cast the validation data to an array.
 
 ```php
 $validation = new VatValidation();
-$validation->validate('UK123321213');
+$validation->validate('HU123321213');
 var_dump($validation->toArray());
 ```
